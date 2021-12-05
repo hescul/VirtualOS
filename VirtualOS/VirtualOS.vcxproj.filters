@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{2627498b-b3ba-496e-a192-aa7c8dccbfe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{d41d3b84-1d19-4e12-8646-95b3e704d11e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{72651b7d-8fa6-4bef-bca9-ea0d7b5d6d17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input\proc">
+      <UniqueIdentifier>{b9a77855-b9a9-41df-ae2b-9016ccc88666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="output">
+      <UniqueIdentifier>{8505e230-bf0a-49d6-b4aa-2fcaba138ca2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source_code\include\common.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source_code\include\cpu.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source_code\include\loader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source_code\include\mem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source_code\include\sched.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source_code\include\timer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source_code\include\queue.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source_code\src\cpu.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source_code\src\loader.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source_code\src\mem.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source_code\src\os.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source_code\src\paging.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source_code\src\queue.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source_code\src\sched.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source_code\src\timer.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\source_code\input\os_0">
+      <Filter>input</Filter>
+    </None>
+    <None Include="..\source_code\input\os_1">
+      <Filter>input</Filter>
+    </None>
+    <None Include="..\source_code\input\sched_0">
+      <Filter>input</Filter>
+    </None>
+    <None Include="..\source_code\input\sched_1">
+      <Filter>input</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\m0">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\m1">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\p0">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\p1">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\s0">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\s1">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\s2">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\input\proc\s3">
+      <Filter>input\proc</Filter>
+    </None>
+    <None Include="..\source_code\output\m0">
+      <Filter>output</Filter>
+    </None>
+    <None Include="..\source_code\output\m1">
+      <Filter>output</Filter>
+    </None>
+    <None Include="..\source_code\output\os_0">
+      <Filter>output</Filter>
+    </None>
+    <None Include="..\source_code\output\os_1">
+      <Filter>output</Filter>
+    </None>
+    <None Include="..\source_code\output\sched_0">
+      <Filter>output</Filter>
+    </None>
+    <None Include="..\source_code\output\sched_1">
+      <Filter>output</Filter>
+    </None>
+    <None Include="..\source_code\.DS_Store" />
+    <None Include="..\source_code\Makefile" />
+  </ItemGroup>
+</Project>

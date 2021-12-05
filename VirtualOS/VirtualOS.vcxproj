@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{86c0b93a-c708-4e6b-88e8-690218f05fae}</ProjectGuid>
+    <Keyword>Linux</Keyword>
+    <RootNamespace>VirtualOS</RootNamespace>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <ApplicationType>Linux</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+    <TargetLinuxPlatform>Generic</TargetLinuxPlatform>
+    <LinuxProjectType>{FC1A4D80-50E9-41DA-9192-61C0DBAA00D2}</LinuxProjectType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <RemoteCCompileToolExe>gcc</RemoteCCompileToolExe>
+    <NMakeIncludeSearchPath>P:\Repos\local\linux\lab\VirtualOS\source_code\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\source_code\.DS_Store" />
+    <None Include="..\source_code\input\os_0" />
+    <None Include="..\source_code\input\os_1" />
+    <None Include="..\source_code\input\proc\m0" />
+    <None Include="..\source_code\input\proc\m1" />
+    <None Include="..\source_code\input\proc\p0" />
+    <None Include="..\source_code\input\proc\p1" />
+    <None Include="..\source_code\input\proc\s0" />
+    <None Include="..\source_code\input\proc\s1" />
+    <None Include="..\source_code\input\proc\s2" />
+    <None Include="..\source_code\input\proc\s3" />
+    <None Include="..\source_code\input\sched_0" />
+    <None Include="..\source_code\input\sched_1" />
+    <None Include="..\source_code\Makefile" />
+    <None Include="..\source_code\output\m0" />
+    <None Include="..\source_code\output\m1" />
+    <None Include="..\source_code\output\os_0" />
+    <None Include="..\source_code\output\os_1" />
+    <None Include="..\source_code\output\sched_0" />
+    <None Include="..\source_code\output\sched_1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source_code\include\common.h" />
+    <ClInclude Include="..\source_code\include\cpu.h" />
+    <ClInclude Include="..\source_code\include\loader.h" />
+    <ClInclude Include="..\source_code\include\mem.h" />
+    <ClInclude Include="..\source_code\include\queue.h" />
+    <ClInclude Include="..\source_code\include\sched.h" />
+    <ClInclude Include="..\source_code\include\timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source_code\src\cpu.c" />
+    <ClCompile Include="..\source_code\src\loader.c" />
+    <ClCompile Include="..\source_code\src\mem.c" />
+    <ClCompile Include="..\source_code\src\os.c" />
+    <ClCompile Include="..\source_code\src\paging.c" />
+    <ClCompile Include="..\source_code\src\queue.c" />
+    <ClCompile Include="..\source_code\src\sched.c" />
+    <ClCompile Include="..\source_code\src\timer.c" />
+  </ItemGroup>
+  <ItemDefinitionGroup />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
