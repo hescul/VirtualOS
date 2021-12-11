@@ -16,7 +16,6 @@ static struct {
 } _mem_stat [NUM_PAGES];
 
 static pthread_mutex_t mem_lock;
-static pthread_mutex_t ram_lock;
 
 void init_mem(void) {
 	memset(_mem_stat, 0, sizeof(*_mem_stat) * NUM_PAGES);
@@ -50,13 +49,10 @@ static struct page_table_t * get_page_table(
 	 * field of the row is equal to the index
 	 *
 	 * */
-	//for (int i = 0; i < seg_table->size; i++) {
-	//	// Enter your code here
-	//	if (seg_table->table[i].v_index == index)
-	//		return seg_table->table[i].pages;
-	//}
-	if (index < (addr_t)seg_table->size && seg_table->table[index].v_index == index) {
-		return seg_table->table[index].pages;
+	for (int i = 0; i < seg_table->size; i++) {
+		// Enter your code here
+		if (seg_table->table[i].v_index == index)
+			return seg_table->table[i].pages;
 	}
 	return NULL;
 
@@ -84,20 +80,16 @@ static int translate(
 		return 0;
 	}
 
-	//int i;
-	//for (i = 0; i < page_table->size; i++) {
-	//	if (page_table->table[i].v_index == second_lv) {
-	//		/* TODO: Concatenate the offset of the virtual address
-	//		 * to [p_index] field of page_table->table[i] to 
-	//		 * produce the correct physical address and save it to
-	//		 * [*physical_addr]  */
-	//		*physical_addr = (page_table->table[i].p_index << OFFSET_LEN) | offset;
-	//		return 1;
-	//	}
-	//}
-	if (second_lv < (addr_t)page_table->size && page_table->table[second_lv].v_index == second_lv) {
-		*physical_addr = page_table->table[second_lv].p_index << OFFSET_LEN | offset;
-		return 1;
+	int i;
+	for (i = 0; i < page_table->size; i++) {
+		if (page_table->table[i].v_index == second_lv) {
+			/* TODO: Concatenate the offset of the virtual address
+			 * to [p_index] field of page_table->table[i] to 
+			 * produce the correct physical address and save it to
+			 * [*physical_addr]  */
+			*physical_addr = (page_table->table[i].p_index << OFFSET_LEN) | offset;
+			return 1;
+		}
 	}
 	return 0;	
 }
@@ -161,16 +153,14 @@ addr_t alloc_mem(uint32_t size, struct pcb_t * proc) {
 				if (target_page_table == NULL) {	// if we're changing to a new slot of segment table
 					proc->seg_table->table[first_lv].pages = 
 						(struct page_table_t*)malloc(sizeof(struct page_table_t));	// allocate a new page table for this segment table slot
-					proc->seg_table->table[first_lv].pages->size = 0;				// initialize its size
+					proc->seg_table->table[first_lv].pages->size = 1 << PAGE_LEN;	// initialize its size
 					proc->seg_table->table[first_lv].v_index = first_lv;			// and update its v_index value
-					proc->seg_table->size = first_lv + 1;	// at this time the size of the segment table have been incremented
 					target_page_table = proc->seg_table->table[first_lv].pages;		// further tasks' coming
 				}
 				// we've got the target page table, the new frame index will be updated to the target slot of this table
 				addr_t second_lv = get_second_lv(page_address);
 				target_page_table->table[second_lv].p_index = j;			// our main focus is here
 				target_page_table->table[second_lv].v_index = second_lv;	// update v_index of this page table slot
-				target_page_table->size = second_lv + 1;	// the page table size is also incremented
 
 				// now its time to modify the memory state structure
 				_mem_stat[j].proc  = proc->pid;	// register this frame is for this process
@@ -207,7 +197,7 @@ int free_mem(addr_t address, struct pcb_t * proc) {
 	}
 	// we do the same for the page table
 	addr_t second_lv = get_second_lv(address);
-	if (second_lv >= (addr_t)target_table->size || target_table->table[second_lv].v_index != second_lv)
+	if (target_table->table[second_lv].v_index != second_lv)
 		return 0;
 	// okay this address is valid, let deallocate from the first frame of the allocated list
 	addr_t proc_page_id = target_table->table[second_lv].p_index;

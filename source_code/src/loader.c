@@ -37,7 +37,7 @@ struct pcb_t * load(const char * path) {
 	proc->seg_table =
 		(struct seg_table_t*)malloc(sizeof(struct seg_table_t));
 	// initialize segment table
-	proc->seg_table->size = 0;
+	proc->seg_table->size = 1 << SEGMENT_LEN;
 
 	proc->bp = PAGE_SIZE;
 	proc->pc = 0;
