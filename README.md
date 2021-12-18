@@ -1,2 +1,2 @@
 # Virtual Operating System
-A Linux implementation of a simple operating system.
+An implementation of a simple operating system running on Linux.
